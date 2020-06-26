@@ -2,7 +2,10 @@ name: Docker build on push
 env:
         DOCKER_CLI_EXPERIMENTAL: enabled
 
-on: push
+on:
+        push:
+                branches:
+                  - *
 
 jobs:
         build:
