@@ -1,7 +1,7 @@
+FROM alpine:3.11
+
 ARG USER=toruser
 ARG UID=1000
-
-FROM alpine:3.11
 
 RUN apk add --no-cache tor
 
