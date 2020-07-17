@@ -2,9 +2,7 @@ FROM alpine:3.11
 
 ARG USER=tor
 
-RUN apk add --no-cache tor
-    && addgroup -S appgroup 
-    && adduser -S $USER -G appgroup
+RUN apk add --no-cache tor && addgroup -S appgroup && adduser -S $USER -G appgroup
 
 USER tor
 
