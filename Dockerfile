@@ -1,13 +1,11 @@
-ARG USER=umbrel
-
 FROM alpine:3.11
 
 RUN apk add --no-cache tor
 
+USER 1000:1000
+
 VOLUME /etc/tor/
 VOLUME /var/lib/tor/
-
-USER 1000:1000
 
 EXPOSE 9050 9051 29050 29051
 
