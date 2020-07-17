@@ -1,14 +1,15 @@
-FROM alpine:3.11
+ARG USER=toruser
+ARG UID=1000
 
-ARG USER=tor
+FROM alpine:3.11
 
 RUN apk add --no-cache tor
 
-RUN adduser -D -g '' tor
-
-USER tor
-
-RUN mkdir -p "/.tor/"
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --uid "$UID" \
+    "$USER"
 
 VOLUME /etc/tor/
 VOLUME /var/lib/tor/
