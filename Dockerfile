@@ -7,8 +7,6 @@ RUN apk add --no-cache tor
 RUN adduser \
     --disabled-password \
     --gecos "" \
-    --home "$(pwd)" \
-    --no-create-home \
     "$USER"
 
 USER tor
