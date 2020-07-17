@@ -2,6 +2,8 @@ FROM alpine:3.11
 
 ARG USER=tor
 
+RUN apk add --no-cache tor
+
 RUN adduser \
     --disabled-password \
     --gecos "" \
@@ -9,10 +11,7 @@ RUN adduser \
     --no-create-home \
     "$USER"
 
-
 USER tor
-
-RUN apk add --no-cache tor
 
 RUN mkdir -p "/.tor/"
 
