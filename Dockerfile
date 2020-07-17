@@ -1,16 +1,12 @@
 FROM alpine:3.11
 
 ARG USER=tor
-ARG UID=1000
-ARG GID=1000
 
 RUN adduser \
     --disabled-password \
     --gecos "" \
     --home "$(pwd)" \
     --no-create-home \
-    --uid "$UID" \
-    --gid "$GID" \
     "$USER"
 
 
