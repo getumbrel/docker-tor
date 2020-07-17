@@ -1,13 +1,22 @@
 FROM alpine:3.11
 
-RUN apk add --no-cache tor
+ARG USER=tor
+ARG UID=1000
+ARG GID=1000
 
-# Create new tor user with GID and UID = 1000
-RUN adduser --disabled-password \
-            --gecos "" \
-            "tor"
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "$(pwd)" \
+    --ingroup "$USER" \
+    --no-create-home \
+    --uid "$UID" \
+    "$USER"
+
 
 USER tor
+
+RUN apk add --no-cache tor
 
 RUN mkdir -p "/.tor/"
 
