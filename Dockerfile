@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.15
 
 ARG USER=toruser
 ARG UID=1000
